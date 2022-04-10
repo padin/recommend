@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.168.1.101:3306/recommend?useSSL=false&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: admin
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+markerhub:
+  jwt:
+    header: Authorization
+    expire: 604800 #7天
+    secret: ji8n3439n439n43ld9ne9343fdfer49h
+app:
+  default-password: 666666
+  er-code-path-prefix: https://oss.wyizd.com/recommend/
+  er-code-referees-prefix: https://qn.wyizd.com/enroll/
+  er-code-customer-prefix: https://qn.wyizd.com/coupon/
+  er-code-coupon-prefix: https://qn.wyizd.com/check/
+
+  endpoint: oss-cn-hangzhou.aliyuncs.com
+  accessKeyId: LTAI5t5oWsoBLVFbxg6vicuA
+  accessKeySecret:
+  bucketName: padin-oss-hd1
+  keySuffixWithSlash: recommend/
