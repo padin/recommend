@@ -42,15 +42,15 @@ import org.springframework.stereotype.Component;
 public class CreateFolderSample {
 
 //    private static String endpoint = "oss-cn-hangzhou-internal.aliyuncs.com";
-    @Value("${app.endpoint")
+    @Value("${app.oss.endpoint}")
     private static String endpoint = "";
-    @Value("${app.accessKeyId")
+    @Value("${app..oss.accessKeyId}")
     private static String accessKeyId = "";
-    @Value("${app.accessKeySecret")
+    @Value("${app.oss.accessKeySecret}")
     private static String accessKeySecret = "";
-    @Value("${app.bucketName")
+    @Value("${app.oss.bucketName}")
     private static String bucketName = "";
-    @Value("${app.keySuffixWithSlash")
+    @Value("${app.oss.keySuffixWithSlash}")
     private static final String keySuffixWithSlash = "";
 
     public static void upload(InputStream is,String fileName) throws IOException {

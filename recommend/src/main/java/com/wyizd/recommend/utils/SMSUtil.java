@@ -6,19 +6,25 @@ import com.aliyun.dysmsapi20170525.models.SendSmsResponse;
 import com.aliyun.teaopenapi.models.Config;
 import com.wyizd.recommend.common.SMSCodePool;
 import com.wyizd.recommend.dto.condition.SendInfo;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class SMSUtil {
+    @Value("${app.sms.accessKeyId}")
+    static String accessKeyId;
+    @Value("${app.sms.accessKeySecret}")
+    static String accessKeySecret;
+
     /**
      * 使用AK&SK初始化账号Client
-     * @param accessKeyId
-     * @param accessKeySecret
      * @return Client
      * @throws Exception
      */
-    public static com.aliyun.dysmsapi20170525.Client createClient(String accessKeyId, String accessKeySecret) throws Exception {
+    public static com.aliyun.dysmsapi20170525.Client createClient() throws Exception {
         Config config = new Config()
                 // 您的AccessKey ID
                 .setAccessKeyId(accessKeyId)
@@ -31,7 +37,7 @@ public class SMSUtil {
 
     public static SendSmsResponse send(SendInfo sendInfo) throws Exception {
 
-        com.aliyun.dysmsapi20170525.Client client = SMSUtil.createClient("LTAIUwwbJS5YZb7V", "MTpVy98K3mo8eUP2iiU1l68Xl4kFFZ");
+        com.aliyun.dysmsapi20170525.Client client = SMSUtil.createClient();
 //        SendSmsRequest sendSmsRequest = new SendSmsRequest()
 //                .setSignName("苍穹之上")
 //                .setTemplateCode("SMS_230960412")
@@ -49,7 +55,7 @@ public class SMSUtil {
 
     public static SendSmsResponse send(String phoneNumber, Map templateParam ) throws Exception {
 
-        com.aliyun.dysmsapi20170525.Client client = SMSUtil.createClient("LTAIUwwbJS5YZb7V", "MTpVy98K3mo8eUP2iiU1l68Xl4kFFZ");
+        com.aliyun.dysmsapi20170525.Client client = SMSUtil.createClient();
 //        SendSmsRequest sendSmsRequest = new SendSmsRequest()
 //                .setSignName("苍穹之上")
 //                .setTemplateCode("SMS_230960412")
